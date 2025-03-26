@@ -26,6 +26,10 @@ def loginButton(context):
 
 @then(u'User must successfully login to Dashboard Page')
 def dashboardVerify(context):
-    status = context.driver.find_element(By.CSS_SELECTOR, 'span > h6').is_displayed()
-    assert status is True
+    try:
+        status = context.driver.find_element(By.CSS_SELECTOR, 'span > h6').is_displayed()
+    except:
+        context.driver.quit()
+        assert False, 'Test failed!'
+    assert status is True, 'Test, passed!'
     context.driver.quit()
