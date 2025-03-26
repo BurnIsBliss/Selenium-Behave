@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from behave import *
-from time import sleep
 
 @given(u'I Launch Chrome browser')
 def openChrome(context):
